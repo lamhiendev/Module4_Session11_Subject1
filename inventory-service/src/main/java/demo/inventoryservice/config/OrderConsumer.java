@@ -13,16 +13,16 @@ public class OrderConsumer {
 
     private final InventoryService inventoryService;
 
-    @KafkaListener(
-            topics = "medicine-stock-events",
-            groupId = "inventory-service-group"
-    )
-    public void consume(OrderEvent event) {
-
-        System.out.println("========== KAFKA EVENT ==========");
-        System.out.println("Medicine ID: " + event.getMedicineId());
-        System.out.println("Quantity: " + event.getQuantity());
-
-        inventoryService.processOrder(event);
-    }
+//    @KafkaListener(
+//            topics = "medicine-stock-events",
+//            groupId = "inventory-service-group"
+//    )
+//    public void consume(OrderEvent event) {
+//
+//        System.out.println("========== KAFKA EVENT ==========");
+//        System.out.println("Medicine ID: " + event.getMedicineId());
+//        System.out.println("Quantity: " + event.getQuantity());
+//
+//        inventoryService.processOrder(event);
+//    }
 }

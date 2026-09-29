@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface MedicineRepository extends JpaRepository<Medicine, String> {
+public interface MedicineRepository extends JpaRepository<Medicine, Long> {
     @Modifying
     @Query("""
         UPDATE Medicine m
@@ -15,7 +15,7 @@ public interface MedicineRepository extends JpaRepository<Medicine, String> {
           AND m.stock >= :quantity
     """)
     int decreaseStock(
-            @Param("medicineId") String medicineId,
+            @Param("medicineId") Long medicineId,
             @Param("quantity") Integer quantity
     );
 }
